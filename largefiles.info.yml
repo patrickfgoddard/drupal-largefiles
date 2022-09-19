@@ -1,0 +1,7 @@
+name: Large Files
+type: module
+description: 'Display list of large files (images, pdfs, etc, based on configurable file size.'
+core_version_requirement: ^8.7.7 || ^9
+package: Development
+version: VERSION
+configure: largefiles.admin_form

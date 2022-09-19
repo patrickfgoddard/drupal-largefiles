@@ -1,0 +1,14 @@
+largefiles.admin_form:
+  path: '/admin/config/system/largefiles'
+  defaults:
+    _form: '\Drupal\largefiles\Form\SettingsForm'
+    _title: Large File List Settings
+  requirements:
+    _permission: 'administer largefiles settings'
+largefiles.list_page:
+  path: '/admin/content/largefiles'
+  defaults:
+    _controller: '\Drupal\largefiles\Controller\LargeFilesController::listPage'
+    _title: 'Large File List'
+  requirements:
+    _permission: 'view large files list'
