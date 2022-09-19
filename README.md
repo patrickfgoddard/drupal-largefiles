@@ -3,17 +3,18 @@ CONTENTS OF THIS FILE
 
  * Introduction
  * Requirements
- * Recommended modules
  * Installation
  * Configuration
- * Troubleshooting
- * FAQ
  * Maintainers
 
 INTRODUCTION
 ------------
 
-tbd
+Simple module to display files of a large size. Size is determined by settings page (/admin/config/system/largefiles), with 2mb by default.
+
+Yes, this is very similar to the built-in Files (/admin/content/files), but this display will only show files larger than your determined size in descending order.
+
+Useful to get a quick glance at large files you may want to address right away.
 
 INSTALLATION
 ------------
@@ -29,11 +30,7 @@ This module requires no modules outside of Drupal core.
 CONFIGURATION
 -------------
 
-TROUBLESHOOTING
----------------
-
-FAQ
----------------
+/admin/config/system/largefiles sets the file size you would like to use as a "baseline".
 
 MAINTAINERS
 -----------
