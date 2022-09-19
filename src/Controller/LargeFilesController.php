@@ -29,11 +29,11 @@ class LargeFilesController extends ControllerBase {
     $filesizeBytes = $filesizeCheck * 1024 * 1024;
     $database = \Drupal::database();
     
-    $query = $database->query("SELECT fid, filename, filesize, uri FROM {file_managed} where filesize >= :filesize", [
+    $query = $database->query("SELECT fid, filename, filesize, filemime, uri FROM {file_managed} where filesize >= :filesize order by filesize desc", [
       ':filesize' => $filesizeBytes,
     ]);
     $result = $query->fetchAll();
-    $output = '<thead><tr><th>File</th><th>Filesize</th></tr><thead>';
+    $output = '<thead><tr><th>File</th><th>Filesize</th><th>Type</th><th>Usage</th></tr><thead>';
     $output .= '<tbody>';
 
     // Go through each result and create row
@@ -42,13 +42,17 @@ class LargeFilesController extends ControllerBase {
       $output .= '<tr>';
       $output .= '<td><a href=". ' . file_create_url($record->uri) . '">' . $record->filename . '</a></td>';
       $output .= '<td>' . $filesizeMB . ' MB</td>';
+      $output .= '<td>' . $record->filemime . '</td>';
+      $output .= '<td><a href="/admin/content/files/usage/' . $record->fid . '">Usage</a></td>';
+      
+      
       $output .= '</tr>';
     }
     $output .= '</tbody>';
 
     // Display on page
     return [
-      '#prefix' => '<table>',
+      '#prefix' => '<h2>Files bigger than ' .  $filesizeCheck . ' MB</h2><table>',
       '#markup' => $output,
       '#suffix' => '</table>',
     ];
