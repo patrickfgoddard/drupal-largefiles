@@ -58,6 +58,7 @@ class SettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state, $field_type = NULL) {
+    // TODO: how to set to 2mb by default?
     $config = $this->config('largefiles.settings');
 
     if ($config->get('file_size') === '') {

@@ -1,0 +1,3 @@
+largefiles.list_page:
+  title: 'Large Files List'
+  route_name: largefiles.list_page
