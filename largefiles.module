@@ -1,0 +1,36 @@
+<?php
+
+use Drupal\Core\Url;
+use \Drupal\Core\Cache\RefinableCacheableDependencyInterface;
+
+
+/**
+ * @file
+ * Large File Finder.
+ *
+ * Simple module for editors/admins check for large files based on configured file size (default is 2mb). This file is a holder for any necessary hooks
+ */
+
+ /**
+ * Implements hook_menu_local_tasks_alter().
+ *
+ * Addes "Large File Finder tab on admin content page (admin/content)
+ */
+
+// function largefiles_menu_local_tasks_alter(&$data, $route_name, RefinableCacheableDependencyInterface &$cacheability) {
+//   // Add a tab linking custom large finder .
+//   if ($route_name === 'system.admin_content') {
+//     $data['tabs'][0]['largefilefinder'] = [
+//       '#theme' => 'menu_local_task',
+//       '#link' => [
+//         'title' => 'Large File Finder',
+//         'url' => Url::fromRoute('largefiles.list_page'),
+//       ],
+//       'localized_options' => [
+//         'attributes' => [
+//             'title' => t('hello'),
+//         ],
+//     ],
+//     ];
+//   }
+// }
